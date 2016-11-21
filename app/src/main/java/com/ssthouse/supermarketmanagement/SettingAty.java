@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ssthouse.supermarketmanagement.util.PreferUtil;
+
 /**
  * Created by ssthouse on 21/11/2016.
  */
@@ -24,6 +26,7 @@ public class SettingAty extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
         initToolbar();
         etStaffName = (EditText) findViewById(R.id.id_et_staff_name);
+        etStaffName.setText(PreferUtil.getInstance(this).getStaffName());
 
         findViewById(R.id.id_btn_sure).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +36,7 @@ public class SettingAty extends AppCompatActivity {
                 }
                 Toast.makeText(SettingAty.this, "Change Name to : " + etStaffName.getText().toString(),
                         Toast.LENGTH_SHORT).show();
+                PreferUtil.getInstance(SettingAty.this).setStaffName(etStaffName.getText().toString());
                 finish();
             }
         });

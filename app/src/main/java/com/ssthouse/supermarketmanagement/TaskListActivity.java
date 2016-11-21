@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +22,7 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.ssthouse.supermarketmanagement.bean.Task;
 import com.ssthouse.supermarketmanagement.detail.TaskEditAty;
+import com.ssthouse.supermarketmanagement.util.PreferUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,13 +112,17 @@ public class TaskListActivity extends AppCompatActivity {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if (e != null) {
-                    Log.e("TaskListAty", "wrong*******************");
+                    //Log.e("TaskListAty", "wrong*******************");
                     return;
                 }
                 if (list.size() > taskList.size()) {
                     taskList.clear();
+                    String staffName = PreferUtil.getInstance(TaskListActivity.this).getStaffName();
                     for (AVObject avObject : list) {
-                        taskList.add(Task.getTaskFromCloudObj(avObject));
+                        Task curTask = Task.getTaskFromCloudObj(avObject);
+                        if (curTask.getHandlerStaff().equals(staffName)) {
+                            taskList.add(curTask);
+                        }
                     }
                     //update view
                     taskLvAdapter.notifyDataSetChanged();
@@ -149,16 +153,20 @@ public class TaskListActivity extends AppCompatActivity {
                 @Override
                 public void done(List<AVObject> list, AVException e) {
                     if (e != null) {
-                        Log.e("TaskListAty", "wrong*******************");
+                        //Log.e("TaskListAty", "wrong*******************");
                         return;
                     }
                     taskList.clear();
+                    String staffName = PreferUtil.getInstance(TaskListActivity.this).getStaffName();
                     for (AVObject avObject : list) {
-                        taskList.add(Task.getTaskFromCloudObj(avObject));
+                        Task curTask = Task.getTaskFromCloudObj(avObject);
+                        if (curTask.getHandlerStaff().equals(staffName)) {
+                            taskList.add(curTask);
+                        }
                     }
                     //update view
                     taskLvAdapter.notifyDataSetChanged();
-                    Log.e("***List", taskList.get(taskList.size() - 1).getTaskState());
+                    //Log.e("***List", taskList.get(taskList.size() - 1).getTaskState());
                 }
             });
         }

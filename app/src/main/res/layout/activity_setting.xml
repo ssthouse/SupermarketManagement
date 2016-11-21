@@ -17,12 +17,14 @@
         android:id="@+id/id_et_staff_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:maxLines="1" />
 
     <Button
         android:id="@+id/id_btn_sure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:gravity="center"
         android:text="Sure" />
 </LinearLayout>
