@@ -16,5 +16,5 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:minLines="2" />
+        android:maxLines="2" />
 </LinearLayout>

@@ -1,11 +1,15 @@
 package com.ssthouse.supermarketmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -28,6 +32,8 @@ public class TaskListActivity extends AppCompatActivity {
     private List<Task> taskList = new ArrayList<>();
 
     private static final int MSG_RECEIVE_TASK = 1000;
+
+    private static final int REQUEST_CODE = 1001;
 
     private ListView lvTaskList;
 
@@ -57,7 +63,7 @@ public class TaskListActivity extends AppCompatActivity {
         lvTaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TaskEditAty.start(TaskListActivity.this, taskList.get(position));
+                TaskEditAty.startForResult(TaskListActivity.this, taskList.get(position), REQUEST_CODE);
             }
         });
     }
@@ -105,6 +111,10 @@ public class TaskListActivity extends AppCompatActivity {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
+                if (e != null) {
+                    Log.e("TaskListAty", "wrong*******************");
+                    return;
+                }
                 if (list.size() > taskList.size()) {
                     taskList.clear();
                     for (AVObject avObject : list) {
@@ -117,5 +127,39 @@ public class TaskListActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_setting)
+            SettingAty.start(this);
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_task_list, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            AVQuery<AVObject> query = new AVQuery<>(Task.CLASS_NAME);
+            query.findInBackground(new FindCallback<AVObject>() {
+                @Override
+                public void done(List<AVObject> list, AVException e) {
+                    if (e != null) {
+                        Log.e("TaskListAty", "wrong*******************");
+                        return;
+                    }
+                    taskList.clear();
+                    for (AVObject avObject : list) {
+                        taskList.add(Task.getTaskFromCloudObj(avObject));
+                    }
+                    //update view
+                    taskLvAdapter.notifyDataSetChanged();
+                }
+            });
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package com.ssthouse.supermarketmanagement.detail;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,10 +35,10 @@ public class TaskEditAty extends AppCompatActivity {
 
     public static final String KEY_INTENT_TASK = "task";
 
-    public static void start(Context context, Task task) {
+    public static void startForResult(Activity context, Task task, int requestCode) {
         Intent intent = new Intent(context, TaskEditAty.class);
         intent.putExtra(KEY_INTENT_TASK, task);
-        context.startActivity(intent);
+        context.startActivityForResult(intent, requestCode);
     }
 
     private Task mTask;
@@ -131,10 +131,10 @@ public class TaskEditAty extends AppCompatActivity {
                         mTask.setTaskState(UnConfirmed.toString());
                         break;
                     case 1:
-                        mTask.setTaskContent(OnGoing.toString());
+                        mTask.setTaskState(OnGoing.toString());
                         break;
                     case 2:
-                        mTask.setTaskContent(Finished.toString());
+                        mTask.setTaskState(Finished.toString());
                         break;
                 }
             }
