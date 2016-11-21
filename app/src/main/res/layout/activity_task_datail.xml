@@ -6,12 +6,6 @@
 
     <include layout="@layout/toolbar" />
 
-    <LinearLayout
-        android:layout_width="0px"
-        android:layout_height="0px"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,7 +17,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="40dp">
 
                 <TextView
                     style="@style/SmallLeftItem"
@@ -32,14 +26,19 @@
                 <TextView
                     android:id="@+id/id_tv_staff_name"
                     style="@style/RightItemSmall"
-                    android:gravity="center" />
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="32dp" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="40dp">
 
                 <TextView
                     style="@style/SmallLeftItem"
@@ -48,13 +47,19 @@
                 <TextView
                     android:id="@+id/id_tv_deliver_time"
                     style="@style/RightItemSmall"
-                    android:gravity="center" />
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="32dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -63,10 +68,17 @@
 
                 <TextView
                     android:id="@+id/id_tv_finish_time"
-                    style="@style/RightItemSmall" />
+                    style="@style/RightItemSmall"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="32dp" />
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,6 +97,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -98,6 +115,10 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
 
             <!--steps-->
 
@@ -132,10 +153,14 @@
                     android:id="@+id/id_btn_add_step"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-
+                    android:layout_margin="8dp"
                     android:text="Add Step" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,17 +184,26 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
+
             <Button
                 android:id="@+id/id_btn_ensure_change"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Ensure Change" />
+                android:layout_margin="8dp"
+                android:text="@string/str_ensure_change" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <include layout="@layout/toolbar" />
-
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
 </LinearLayout>
