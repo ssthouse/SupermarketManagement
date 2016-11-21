@@ -158,6 +158,7 @@ public class TaskListActivity extends AppCompatActivity {
                     }
                     //update view
                     taskLvAdapter.notifyDataSetChanged();
+                    Log.e("***List", taskList.get(taskList.size() - 1).getTaskState());
                 }
             });
         }

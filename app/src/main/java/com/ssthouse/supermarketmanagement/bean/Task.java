@@ -141,6 +141,7 @@ public class Task implements Serializable {
         task.setTaskContent(avObject.getString(KEY_TASK_CONTENT));
         task.setOtherNote(avObject.getString(KEY_OTHER_NOTE));
         task.setStepList(avObject.getList(KEY_STEP_LIST));
+        task.setTaskState(avObject.getString(KEY_TASK_STATE));
         task.setObjId(avObject.getObjectId());
         return task;
     }
