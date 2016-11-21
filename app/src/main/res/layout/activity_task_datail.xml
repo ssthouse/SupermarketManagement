@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    style="@style/SmallLeftItem"
+                    android:text="Staff Name:" />
+
+                <TextView
+                    android:id="@+id/id_tv_staff_name"
+                    style="@style/RightItemSmall"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    style="@style/SmallLeftItem"
+                    android:text="Deliver Time:" />
+
+                <TextView
+                    android:id="@+id/id_tv_deliver_time"
+                    style="@style/RightItemSmall"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/SmallLeftItem"
+                    android:text="Finish Time:" />
+
+                <TextView
+                    android:id="@+id/id_tv_finish_time"
+                    style="@style/RightItemSmall" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BigLeftItem"
+                    android:text="Task Content:" />
+
+                <TextView
+                    android:id="@+id/id_tv_task_content"
+                    style="@style/RightItem" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BigLeftItem"
+                    android:text="Other Note:" />
+
+                <TextView
+                    android:id="@+id/id_tv_other_note"
+                    style="@style/RightItem" />
+
+            </LinearLayout>
+
+
+            <!--steps-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BigLeftItem"
+                    android:text="Steps:" />
+
+                <TextView
+                    android:id="@+id/id_tv_steps"
+                    style="@style/RightItem" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/id_et_new_step"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:hint="New Step" />
+
+                <Button
+                    android:id="@+id/id_btn_add_step"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+
+                    android:text="Add Step" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Task Status"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/id_sp_task_status"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:entries="@array/TaskStatusArray" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/id_btn_ensure_change"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Ensure Change" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/toolbar" />
+
+
+</LinearLayout>

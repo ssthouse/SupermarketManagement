@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">SupermarketManagement</string>
+
+    <array name="main_lv_array">
+        <!--数据挖掘 event 模块-->
+        <item>Sales Tendency</item>
+        <!--销售影响因素分析模块-->
+        <item>Influence Factor Of Sales</item>
+        <!--个性化推送-->
+        <item>Personalized Recommend</item>
+        <!--库存管理模块-->
+        <item>Warehouse Management</item>
+        <!--文档导出模块-->
+        <item>Report Generator</item>
+    </array>
+
+
+    <array name="auto_notify_array">
+        <item>Order notify</item>
+        <item>Self config notify</item>
+    </array>
+
+    <array name="staff_manage_array">
+        <item>Permission Control</item>
+        <item>Staff Statics</item>
+        <item>Task Status</item>
+        <item>Daily Report</item>
+    </array>
+
+    <array name="big_data_support_array">
+        <item>Place Volume Advice</item>
+        <item>WareHouse Advice</item>
+        <item>Change Predict</item>
+        <item>Promotion Predict</item>
+    </array>
+
+    <array name="video_control_array">
+        <item>Watch Supervisory Video</item>
+        <item>Casher Predict</item>
+    </array>
+
+    <array name="event_list_array">
+        <item>Event 1</item>
+        <item>Event 2</item>
+        <item>Event 3</item>
+    </array>
+
+
+    <array name="influence_factor_options_array">
+        <item>Input data record</item>
+        <item>Get main factor</item>
+    </array>
+    <array name="TaskStatusArray">
+        <item>UnConfirmed</item>
+        <item>OnGoing</item>
+        <item>Finished</item>
+    </array>
+</resources>
